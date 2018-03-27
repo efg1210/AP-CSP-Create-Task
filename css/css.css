@@ -1,4 +1,6 @@
-
+body {
+	background-color: black;
+}
 
 #textarea {
     resize: none;
@@ -13,4 +15,32 @@
 	outline: none;
 	border: none;
 	width: 95vw;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: none;
+	height: 40vh;
+	overflow-y: auto;
+}
+
+#user-input {
+	width: 100vw;
+	margin-top: none;
+	outline: none;
+	border: none;
+	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	background-color: darkgrey;
+	color: white;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: fixed;
+}
+
+.user-interface {
+    margin: auto;
 }
