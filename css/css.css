@@ -1,0 +1,16 @@
+
+
+#textarea {
+    resize: none;
+    background-color: black;
+    color: white;
+    font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	outline: none;
+	border: none;
+	width: 95vw;
+}
