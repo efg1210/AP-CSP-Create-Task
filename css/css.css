@@ -1,7 +1,9 @@
 body {
 	background-color: black;
 }
-
+#user-interface {
+	top: 0;
+}
 #textarea {
     resize: none;
     background-color: black;
@@ -18,8 +20,9 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: none;
-	height: 40vh;
-	overflow-y: auto;
+	height: 85vh;
+	overflow: auto;
+	top: 0;
 }
 
 #user-input {
@@ -34,7 +37,27 @@ body {
 	font-weight: 500;
 	line-height: 26.4px;
 	background-color: darkgrey;
-	color: white;
+	color: black;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: fixed;
+}
+
+#userInputTwo {
+	width: 100vw;
+	height: 4em;
+	margin-top: none;
+	outline: none;
+	border: none;
+	font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	background-color: darkgrey;
+	color: black;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -43,4 +66,8 @@ body {
 
 .user-interface {
     margin: auto;
+}
+
+form {
+	margin: none;
 }
