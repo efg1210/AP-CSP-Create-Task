@@ -35,7 +35,7 @@ function firstChars() {
 
 function story(choice){
     if(dead){
-        died();
+        died(choice);
     }
     var result = "";
     if(choice == "go into the ocean for a nice swim"){
@@ -50,6 +50,7 @@ function story(choice){
         } else {
             result += "The water is cold, which is refreshing after walking in the sun. However, you soon get a bad feeling about swimming in the ocean. Soon your fears come true, when you feel a hand grab around your ankle. A mermaid is pulling you into the depths of the ocean, and there is no fighting it. <span id='dead'><b>You have died.</b></span> ";
             dead = true;
+            died();
         }
     } else if(choice == "explore the caves" && !beenCave){
         beenCave = true;
@@ -123,13 +124,20 @@ function displayResult(result) {
     }
 }
 
-//died
-function died(){
-    /*
+//function that restarts the game upon death
+function died(choice){
     if (dead = true){
-        
+        if(choice == "yes" || choice == "y" || choice == "Yes" || choice == "Y") {
+        	var possessions = [];
+			var beachOptions = ["go into the ocean for a nice swim", "explore the caves", "look around the beach for shells"];
+			var beenBeach = false;
+			var beenCave = false;
+			var dead = false;
+			var oldStuff = document.getElementById("textarea").innerHTML;
+			var display = "You go down a road, and soon you hear seagulls squawking and you smell the ocean breeze. Now you are on the beach. To the right you see a group of caves, and in front of you is the ocean. You decide to:<br/>go into the ocean for a nice swim<br />explore the caves<br />look around the beach for shells</p>" + oldStuff;
+			document.getElementById("textarea").innerHTML = display;
+        } else 
     }
-    */
     var result = "You died! Try again? y/n";
     document.getElementById();
 }
