@@ -72,11 +72,11 @@ form {
 	margin: none;
 }
 
-#mermaid {
+.mermaid {
 	font-family:"Happy Monkey";
 	color: #00bbbb;
 }
 
-#dead {
+.dead {
 	color: red;
 }
