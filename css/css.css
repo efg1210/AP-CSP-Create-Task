@@ -80,3 +80,7 @@ form {
 .dead {
 	color: red;
 }
+
+.over {
+	color: yellow;
+}
