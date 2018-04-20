@@ -6,6 +6,7 @@ var beenBeach = false;
 var beenCave = false;
 var dead = false;
 var won = false;
+var counter = 0;
 
 //turns what the user inputs into usable data
 function entered(e){
@@ -13,6 +14,7 @@ function entered(e){
     var input = e.target.userInput.value;
     document.getElementById("userInput").value = "> ";
     var choice = input.substr(2);
+    counter++;
     displayChoice(choice);
     //console.log(displayResult(story(choice)));
     displayResult(story(choice));
