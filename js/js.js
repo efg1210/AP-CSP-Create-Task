@@ -5,17 +5,16 @@ var beachOptions = ["go into the ocean for a nice swim", "explore the caves", "l
 var beenBeach = false;
 var beenCave = false;
 var dead = false;
+var won = false;
 
 //turns what the user inputs into usable data
 function entered(e){
     e.preventDefault();
     var input = e.target.userInput.value;
-    // console.log(input);
     document.getElementById("userInput").value = "> ";
     var choice = input.substr(2);
-    // console.log("work");
-    // console.log(choice);
     displayChoice(choice);
+    //console.log(displayResult(story(choice)));
     displayResult(story(choice));
 }
 
@@ -35,8 +34,10 @@ function firstChars() {
 
 //figures out what the choice is, and what result corresponds with it
 function story(choice){
-    if(dead){
+    if(dead == 1){
         died(choice);
+    } else if(won == 1) {
+        win(choice);
     } else {
         var result = "";
         if(choice == "go into the ocean for a nice swim"){
@@ -53,7 +54,6 @@ function story(choice){
             } else {
                 result += "The water is cold, which is refreshing after walking in the sun. However, you soon get a bad feeling about swimming in the ocean. Soon your fears come true, when you feel a hand grab around your ankle. A mermaid is pulling you into the depths of the ocean, and there is no fighting it. <span class='dead'><b>You have died.</b></span> Try again? y/n";
                 dead = 1;
-                died();
             }
         } else if(choice == "explore the caves" && !beenCave){
             beenCave = true;
@@ -85,14 +85,17 @@ function story(choice){
             }
         } else if(choice == "look around the beach for shells" && !beenBeach){
             beenBeach = true;
-            result += "You find many pretty shells around as you are looking, and you make a pile of them closer to the grass. You also think you see something in the sand as you are looking. You: <br/>";
-            result += "ignore it <br/> investigate";
+            result += "You find many pretty shells around as you are looking, and you make a pile of them closer to the grass. You also think you see something in the sand as you are looking. You: ";
+            //result += "ignore it <br/> investigate";
+            result += "<ul><li>ignore it</li><li>investigate</li></ul>"
         } else if(choice == "ignore it"){
             result += "It is probably just another crab, and there are shells to collect! ";
             result += "You have done enough shell collecting. You decide to: ";
-            result += "<br/>go into the ocean for a nice swim";
+            result += "<ul><li>go into the ocean for a nice swim</li>";
             if(!beenCave){
-                result += "<br/>explore the caves";
+                result += "<li>explore the caves</li></ul>";
+            }else{
+                result +="</ul>";
             }
         } else if(choice == "investigate"){
             possessions.push("ring");
@@ -104,15 +107,17 @@ function story(choice){
             }
         }else if(choice == "defy the queen"){
             result += "&#34;Let me go, you disgusting fish!&#34; Your outburst causes clamoring among the merpeople. They are appalled by what you said. Quickly the queen&#39;s guards arrest you, and while doing so they take your jewelry. You cannot breathe underwater now. <span class='dead'><b>You have died.</b></span> Try again? y/n";
+            dead = 1;
         }else if(choice == "answer her questions"){
             result += "You answer her questions and explain that you are a human with magical jewelry. However, the mermaids are not satisfied with your answers. ";
             if(possessions.includes("ring")){
                 result += "They are about to arrest you when a guard takes off the ring and gasps. <span class='mermaid'>My lady, look!</span> She takes the ring to the queen and the queen also gasps. <span class='mermaid'>Do you know what this is? This is the ring is an ancient royal heirloom that was stolen by a human many years ago. For returning it, you are granted the ability to leave my city in peace. You are also permitted to come back when you want, for you are now a friend of the crown.</span> You thank her and you are escorted back to the beach, where you take off your jewelry until you meet the mermaids again. <span class=”over”>You have finished the game without dying.</span> Try again? y/n";
+                won = 1;
                 win();
             }else{
                 result += "The queen&#39;s guards arrest you, and while doing so they take your jewelry. You cannot breathe underwater now. <span class='dead'><b>You have died.</b></span> Try again? y/n";
+                dead = 1;
                 //maybe? we need to decide when to do this
-                died();
             }
         }else{
             result = "<b>Please re-enter it exactly as it is shown.</b>";
@@ -142,22 +147,23 @@ function displayResult(result) {
 
 // function that restarts the game upon death
 
+
+
 function died(choice){
     if (dead){
         if(choice == "yes" || choice == "y" || choice == "Yes" || choice == "Y") {
-        	var possessions = [];
-    		var beachOptions = ["go into the ocean for a nice swim", "explore the caves", "look around the beach for shells"];
-    		var beenBeach = false;
-    		var beenCave = false;
-    		var dead = 0;
-    		var oldStuff = document.getElementById("textarea").innerHTML;
-    		var display = "You go down a road, and soon you hear seagulls squawking and you smell the ocean breeze. Now you are on the beach. To the right you see a group of caves, and in front of you is the ocean. You decide to:<br/>go into the ocean for a nice swim<br />explore the caves<br />look around the beach for shells</p>" + oldStuff;
-	    	document.getElementById("textarea").innerHTML = display;
+            // var result = "Ok, try again<br/>";
+            // result += "<b>Please enter everything exactly as it is shown.</b><br/>You go down a road, and soon you hear seagulls squawking and you smell the ocean breeze. Now you are on the beach. To the right you see a group of caves, and in front of you is the ocean. You decide to:<br/>go into the ocean for a nice swim<br/>explore the caves<br/>look around the beach for shells";
+            // displayResult(result);
+        	location.reload(true);
         }
     }
 }
 
 //function for if you win without dying
-function win(){
-    
+function win(choice){
+    if(choice == "yes" || choice == "y" || choice == "Yes" || choice == "Y") {
+        	location.reload(true);
+    }
 }
+
