@@ -16,7 +16,6 @@ function entered(e){
     var choice = input.substr(2);
     counter++;
     displayChoice(choice);
-    //console.log(displayResult(story(choice)));
     displayResult(story(choice));
 }
 
@@ -54,7 +53,12 @@ function story(choice){
                 result += "Finally you see that there is an entire underwater city, and you are headed right to it. As you go through it, you hear all sorts of chatter in <i>at least</i> one language that you do not know and that is completely foreign to you. You ask the mermaid that brought you down here if they speak your language. She laughs. <span class='mermaid'>Yes, I understand your guttural language, and we can speak it. However it disgusts us, so we avoid it if we can.</span> She laughs again, and turns. She goes through the gates of the underwater palace. ";
                 result += "The mermaid brings you to the queen for questioning. You decide to:</br>defy the queen</br>answer her questions</br>";
             } else {
-                result += "The water is cold, which is refreshing after walking in the sun. However, you soon get a bad feeling about swimming in the ocean. Soon your fears come true, when you feel a hand grab around your ankle. A mermaid is pulling you into the depths of the ocean, and there is no fighting it. <span class='dead'><b>You have died.</b></span> Try again? y/n";
+                result += "The water is cold, which is refreshing after walking in the sun. However, you soon get a bad feeling about swimming in the ocean. Soon your fears come true, when you feel a hand grab around your ankle. A mermaid is pulling you into the depths of the ocean, and there is no fighting it. <span class='dead'><b>You have died.</b></span> ";
+                if(counter == 1){
+                    result += "You did this in " + String(counter) + " try. Try again? y/n";
+                }else{
+                    result += "You did this in " + String(counter) + " tries. Try again? y/n";
+                }
                 dead = 1;
             }
         } else if(choice == "explore the caves" && !beenCave){
@@ -108,16 +112,31 @@ function story(choice){
                 result += "<br/>explore the caves";
             }
         }else if(choice == "defy the queen"){
-            result += "&#34;Let me go, you disgusting fish!&#34; Your outburst causes clamoring among the merpeople. They are appalled by what you said. Quickly the queen&#39;s guards arrest you, and while doing so they take your jewelry. You cannot breathe underwater now. <span class='dead'><b>You have died.</b></span> Try again? y/n";
-            dead = 1;
+            result += "&#34;Let me go, you disgusting fish!&#34; Your outburst causes clamoring among the merpeople. They are appalled by what you said. Quickly the queen&#39;s guards arrest you, and while doing so they take your jewelry. You cannot breathe underwater now. <span class='dead'><b>You have died.</b></span> ";
+            if(counter == 1){
+                result += "You did this in " + String(counter) + " try. Try again? y/n";
+            }else{
+                result += "You did this in " + String(counter) + " tries. Try again? y/n";
+            }
+                dead = 1;
         }else if(choice == "answer her questions"){
             result += "You answer her questions and explain that you are a human with magical jewelry. However, the mermaids are not satisfied with your answers. ";
             if(possessions.includes("ring")){
-                result += "They are about to arrest you when a guard takes off the ring and gasps. <span class='mermaid'>My lady, look!</span> She takes the ring to the queen and the queen also gasps. <span class='mermaid'>Do you know what this is? This is the ring is an ancient royal heirloom that was stolen by a human many years ago. For returning it, you are granted the ability to leave my city in peace. You are also permitted to come back when you want, for you are now a friend of the crown.</span> You thank her and you are escorted back to the beach, where you take off your jewelry until you meet the mermaids again. <span class=”over”>You have finished the game without dying.</span> Try again? y/n";
+                result += "They are about to arrest you when a guard takes off the ring and gasps. <span class='mermaid'>My lady, look!</span> She takes the ring to the queen and the queen also gasps. <span class='mermaid'>Do you know what this is? This is the ring is an ancient royal heirloom that was stolen by a human many years ago. For returning it, you are granted the ability to leave my city in peace. You are also permitted to come back when you want, for you are now a friend of the crown.</span> You thank her and you are escorted back to the beach, where you take off your jewelry until you meet the mermaids again. <span class=”over”>You have finished the game without dying.</span> ";
+                if(counter == 1){
+                    result += "You did this in " + String(counter) + " try. Try again? y/n";
+                }else{
+                    result += "You did this in " + String(counter) + " tries. Try again? y/n";
+                }
                 won = 1;
                 win();
             }else{
-                result += "The queen&#39;s guards arrest you, and while doing so they take your jewelry. You cannot breathe underwater now. <span class='dead'><b>You have died.</b></span> Try again? y/n";
+                result += "The queen&#39;s guards arrest you, and while doing so they take your jewelry. You cannot breathe underwater now. <span class='dead'><b>You have died.</b></span> ";
+                if(counter == 1){
+                    result += "You did this in " + String(counter) + " try. Try again? y/n";
+                }else{
+                    result += "You did this in " + String(counter) + " tries. Try again? y/n";
+                }
                 dead = 1;
                 //maybe? we need to decide when to do this
             }
