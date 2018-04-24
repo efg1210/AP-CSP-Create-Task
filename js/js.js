@@ -7,6 +7,7 @@ var beenCave = false;
 var dead = false;
 var won = false;
 var counter = 0;
+var choose = [];
 
 //turns what the user inputs into usable data
 function entered(e){
@@ -42,6 +43,7 @@ function story(choice){
     } else {
         var result = "";
         if(choice == "go into the ocean for a nice swim"){
+            // addChoice(choice);
             //storyHelp(choice, result);
             if(possessions.includes("necklace") || possessions.includes("bracelet")){
                 result += "The water is cold, which is refreshing after walking in the sun. However, you soon get a bad feeling about swimming in the ocean. Soon your fears come true, when you feel a hand grab around your ankle. A mermaid is pulling you into the depths of the ocean, and there is no fighting it. ";
@@ -55,9 +57,9 @@ function story(choice){
             } else {
                 result += "The water is cold, which is refreshing after walking in the sun. However, you soon get a bad feeling about swimming in the ocean. Soon your fears come true, when you feel a hand grab around your ankle. A mermaid is pulling you into the depths of the ocean, and there is no fighting it. <span class='dead'><b>You have died.</b></span> ";
                 if(counter == 1){
-                    result += "You did this in " + String(counter) + " try. Try again? y/n";
+                    result += "You did this in " + String(counter) + " try. Try again? y/n<br/>";
                 }else{
-                    result += "You did this in " + String(counter) + " tries. Try again? y/n";
+                    result += "You did this in " + String(counter) + " tries. Try again? y/n<br/>";
                 }
                 dead = 1;
             }
@@ -181,9 +183,6 @@ function displayResult(result) {
 function died(choice){
     if (dead){
         if(choice == "yes" || choice == "y" || choice == "Yes" || choice == "Y") {
-            // var result = "Ok, try again<br/>";
-            // result += "<b>Please enter everything exactly as it is shown.</b><br/>You go down a road, and soon you hear seagulls squawking and you smell the ocean breeze. Now you are on the beach. To the right you see a group of caves, and in front of you is the ocean. You decide to:<br/>go into the ocean for a nice swim<br/>explore the caves<br/>look around the beach for shells";
-            // displayResult(result);
         	location.reload(true);
         }
     }
