@@ -7,7 +7,7 @@ var beenCave = false;
 var dead = false;
 var won = false;
 var counter = 0;
-var choose = [];
+//var choose = [];
 
 //turns what the user inputs into usable data
 function entered(e){
@@ -38,8 +38,10 @@ function firstChars() {
 function story(choice){
     if(dead == 1){
         died(choice);
+        return "";
     } else if(won == 1) {
         win(choice);
+        return "";
     } else {
         var result = "";
         if(choice == "go into the ocean for a nice swim"){
@@ -177,9 +179,6 @@ function displayResult(result) {
 }
 
 // function that restarts the game upon death
-
-
-
 function died(choice){
     if (dead){
         if(choice == "yes" || choice == "y" || choice == "Yes" || choice == "Y") {
