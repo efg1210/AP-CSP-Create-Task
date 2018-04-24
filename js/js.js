@@ -152,6 +152,8 @@ function story(choice){
                 dead = 1;
                 //maybe? we need to decide when to do this
             }
+        }else if(choice == "possessions"){
+            showPossessions();
         }else{
             result = "<br/><b>Please re-enter it exactly as it is shown.</b>";
         }
@@ -194,3 +196,23 @@ function win(choice){
     }
 }
 
+//shows possessions of the user
+function showPossessions(){
+    if(possessions.length <= 0){
+        displayResult("You have no possessions. Continue from last story text<br/>");
+    }else{
+        var numberOfPossessions = 0;
+        var possessionsText = "<ul>";
+        for(var i = 0; i < possessions.length; i++){
+            possessionsText += "<li>" + possessions[i] + "</li>";
+            numberOfPossessions++;
+        }
+        possessionsText += "</ul>";
+        if(numberOfPossessions > 1){
+            var endMessage = "You have " + String(numberOfPossessions) + " possessions, and they are:" + possessionsText;
+        }else{
+            var endMessage = "You have " + String(numberOfPossessions) + " possession, and it is:" + possessionsText;
+        }
+        displayResult(endMessage);
+    }
+}
