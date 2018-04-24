@@ -126,9 +126,9 @@ function story(choice){
         }else if(choice == "defy the queen"){
             result += "&#34;Let me go, you disgusting fish!&#34; Your outburst causes clamoring among the merpeople. They are appalled by what you said. Quickly the queen&#39;s guards arrest you, and while doing so they take your jewelry. You cannot breathe underwater now. <span class='dead'><b>You have died.</b></span> ";
             if(counter == 1){
-                result += "You did this in " + String(counter) + " try. Try again? y/n";
+                result += "You did this in " + String(counter) + " try. Try again? y/n<br/>";
             }else{
-                result += "You did this in " + String(counter) + " tries. Try again? y/n";
+                result += "You did this in " + String(counter) + " tries. Try again? y/n<br/>";
             }
                 dead = 1;
         }else if(choice == "answer her questions"){
@@ -136,24 +136,24 @@ function story(choice){
             if(possessions.includes("ring")){
                 result += "They are about to arrest you when a guard takes off the ring and gasps. <span class='mermaid'>My lady, look!</span> She takes the ring to the queen and the queen also gasps. <span class='mermaid'>Do you know what this is? This is the ring is an ancient royal heirloom that was stolen by a human many years ago. For returning it, you are granted the ability to leave my city in peace. You are also permitted to come back when you want, for you are now a friend of the crown.</span> You thank her and you are escorted back to the beach, where you take off your jewelry until you meet the mermaids again. <span class='over'>You have finished the game without dying.</span> ";
                 if(counter == 1){
-                    result += "You did this in " + String(counter) + " try. Try again? y/n";
+                    result += "You did this in " + String(counter) + " try. Try again? y/n<br/>";
                 }else{
-                    result += "You did this in " + String(counter) + " tries. Try again? y/n";
+                    result += "You did this in " + String(counter) + " tries. Try again? y/n<br/>";
                 }
                 won = 1;
                 win();
             }else{
                 result += "The queen&#39;s guards arrest you, and while doing so they take your jewelry. You cannot breathe underwater now. <span class='dead'><b>You have died.</b></span> ";
                 if(counter == 1){
-                    result += "You did this in " + String(counter) + " try. Try again? y/n";
+                    result += "You did this in " + String(counter) + " try. Try again? y/n<br/>";
                 }else{
-                    result += "You did this in " + String(counter) + " tries. Try again? y/n";
+                    result += "You did this in " + String(counter) + " tries. Try again? y/n<br/>";
                 }
                 dead = 1;
                 //maybe? we need to decide when to do this
             }
         }else{
-            result = "<b>Please re-enter it exactly as it is shown.</b>";
+            result = "<br/><b>Please re-enter it exactly as it is shown.</b>";
         }
         return result;
     }
