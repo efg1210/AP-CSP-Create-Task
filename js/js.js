@@ -51,7 +51,7 @@ function story(choice){
                     result += "At first, you panic and believe you are going to die. Then you feel a strong pain in your legs, and you think the mermaid is eating you alive. The pain spreads throughout your body, and when it dissipates, you realize the mermaid is no longer holding your leg. In fact, you no longer have legs! You are now a merperson! This does mean your favorite pair of pants was ruined, though. Oh well, at least you are alive! She grabs your arm, and you have no choice but to follow her deeper. ";
                 }
                 result += "Finally you see that there is an entire underwater city, and you are headed right to it. As you go through it, you hear all sorts of chatter in <i>at least</i> one language that you do not know and that is completely foreign to you. You ask the mermaid that brought you down here if they speak your language. She laughs. <span class='mermaid'>Yes, I understand your guttural language, and we can speak it. However it disgusts us, so we avoid it if we can.</span> She laughs again, and turns. She goes through the gates of the underwater palace. ";
-                result += "The mermaid brings you to the queen for questioning. You decide to:</br>defy the queen</br>answer her questions</br>";
+                result += "The mermaid brings you to the queen for questioning. You decide to:<ul><li>defy the queen</li><li>answer her questions</li></ul>";
             } else {
                 result += "The water is cold, which is refreshing after walking in the sun. However, you soon get a bad feeling about swimming in the ocean. Soon your fears come true, when you feel a hand grab around your ankle. A mermaid is pulling you into the depths of the ocean, and there is no fighting it. <span class='dead'><b>You have died.</b></span> ";
                 if(counter == 1){
@@ -64,30 +64,36 @@ function story(choice){
         } else if(choice == "explore the caves" && !beenCave){
             beenCave = true;
             result += "You walk up to the caves, which is not an easy thing to do since because it is uphill and a very rocky path. Once you get in, you see many beautiful lakes inside the cave. You go from cave to cave, and in one you a few beautiful things. You pick up: <br/>";
-            result += "the necklace<br/>the tiara<br/>the bracelet";
+            result += "<ul><li>the necklace</li><li>the tiara</li><li>the bracelet</li></ul>";
         } else if(choice == "the necklace"){
             possessions.push("necklace");
             result += "The necklace is truly amazing, and it is made of many small pearls and shells. It fits well on you, and you are glad you picked it up. ";
             result += "You then leave the cave, so you decide to: ";
-            result += "<br/>go into the ocean for a nice swim";
+            result += "<ul><li>go into the ocean for a nice swim</li>";
             if(!beenBeach){
-                result += "<br/>look around the beach for shells";
+                result += "<li>look around the beach for shells</li></ul>";
+            }else{
+                result += "</ul>";
             }
         } else if(choice == "the tiara"){
             possessions.push("tiara");
             result += "It is a very pretty tiara, and you feel a bit like royalty. It is made of pearls and shells and make you feel like you can do anything you want to. ";
             result += "You then leave the cave, so you decide to: ";
-            result += "<br/>go into the ocean for a nice swim";
+            result += "<ul><li>go into the ocean for a nice swim</li>";
             if(!beenBeach){
-                result += "<br/>look around the beach for shells";
+                result += "<li>look around the beach for shells</li></ul>";
+            }else{
+                result += "</ul>";
             }
         } else if(choice == "the bracelet"){
             possessions.push("bracelet");
             result += "The bracelet is truly amazing, and it is made of many small pearls and shells. It fits well on you, and you are glad you picked it up. ";
             result += "You then leave the cave, so you decide to: ";
-            result += "<br/>go into the ocean for a nice swim";
+            result += "<ul><li>go into the ocean for a nice swim</li>";
             if(!beenBeach){
-                result += "<br/>look around the beach for shells";
+                result += "<li>look around the beach for shells</li></ul>";
+            }else{
+                result += "</ul>";
             }
         } else if(choice == "look around the beach for shells" && !beenBeach){
             beenBeach = true;
@@ -107,9 +113,11 @@ function story(choice){
             possessions.push("ring");
             result += "As you part the grass, you see something small and made out of some type of metal. It is a ring, and it has a small ship on the front, like a pirate ship. You think it is just big enough for your pinky finger, and you slip it on your finger. ";
             result += "You have done enough shell collecting. You decide to: ";
-            result += "<br/>go into the ocean for a nice swim";
+            result += "<ul><li>go into the ocean for a nice swim</li>";
             if(!beenCave){
-                result += "<br/>explore the caves";
+                result += "<li>explore the caves</li></ul>";
+            }else{
+                result +="</ul>";
             }
         }else if(choice == "defy the queen"){
             result += "&#34;Let me go, you disgusting fish!&#34; Your outburst causes clamoring among the merpeople. They are appalled by what you said. Quickly the queen&#39;s guards arrest you, and while doing so they take your jewelry. You cannot breathe underwater now. <span class='dead'><b>You have died.</b></span> ";
@@ -122,7 +130,7 @@ function story(choice){
         }else if(choice == "answer her questions"){
             result += "You answer her questions and explain that you are a human with magical jewelry. However, the mermaids are not satisfied with your answers. ";
             if(possessions.includes("ring")){
-                result += "They are about to arrest you when a guard takes off the ring and gasps. <span class='mermaid'>My lady, look!</span> She takes the ring to the queen and the queen also gasps. <span class='mermaid'>Do you know what this is? This is the ring is an ancient royal heirloom that was stolen by a human many years ago. For returning it, you are granted the ability to leave my city in peace. You are also permitted to come back when you want, for you are now a friend of the crown.</span> You thank her and you are escorted back to the beach, where you take off your jewelry until you meet the mermaids again. <span class=”over”>You have finished the game without dying.</span> ";
+                result += "They are about to arrest you when a guard takes off the ring and gasps. <span class='mermaid'>My lady, look!</span> She takes the ring to the queen and the queen also gasps. <span class='mermaid'>Do you know what this is? This is the ring is an ancient royal heirloom that was stolen by a human many years ago. For returning it, you are granted the ability to leave my city in peace. You are also permitted to come back when you want, for you are now a friend of the crown.</span> You thank her and you are escorted back to the beach, where you take off your jewelry until you meet the mermaids again. <span class='over'>You have finished the game without dying.</span> ";
                 if(counter == 1){
                     result += "You did this in " + String(counter) + " try. Try again? y/n";
                 }else{
@@ -158,7 +166,7 @@ function displayChoice(choice) {
 //displays the result of the choice
 function displayResult(result) {
     var previousText = document.getElementById("textarea").innerHTML;
-    var display = result + "<br/><br/>" + previousText;
+    var display = result + "<br/>" + previousText;
     //console.log(display);
     document.getElementById("textarea").innerHTML = display + '<br/>';
     /*if(dead){
