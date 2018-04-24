@@ -198,6 +198,7 @@ function win(choice){
 
 //shows possessions of the user
 function showPossessions(){
+    counter--;
     if(possessions.length <= 0){
         displayResult("You have no possessions. Continue from last story text<br/>");
     }else{
