@@ -157,6 +157,7 @@ function story(choice){
         }else{
             result = "<br/><b>Please re-enter it exactly as it is shown.</b>";
         }
+        result = result + "<hr/>"; 
         return result;
     }
 }
